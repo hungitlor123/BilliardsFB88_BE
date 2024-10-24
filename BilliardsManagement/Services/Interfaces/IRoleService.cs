@@ -1,14 +1,19 @@
 ﻿using BilliardsManagement.Entities;
+using BilliardsManagement.Models.Creates;
+using BilliardsManagement.Models.Update;
+using BilliardsManagement.Models.Views;
 
 namespace BilliardsManagement.Services.Interfaces
 {
     public interface IRoleService
     {
-        ICollection<Role> GetRoles();
+        ICollection<RoleViewModel> GetRoles();
 
-        Role? GetRoleById(Guid id);
+        RoleViewModel? GetRoleById(Guid id);
         void DeleteRole(Guid id);
-
-        Role CreateRole(string name);
+        RoleViewModel? CreateRole(RoleCreateModel model);
+        RoleViewModel? UpdateRole(Guid id,RoleUpdatePropertiesModel model);
+        
+        RoleViewModel? UpdateRole (RoleUpdateModel model);
     }
 }
